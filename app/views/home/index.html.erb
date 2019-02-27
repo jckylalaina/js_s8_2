@@ -1,0 +1,52 @@
+
+<h1 class="text-center mb-4">Welcome to my todolist app</h1>
+<%= render 'layouts/task_form'  %>
+<div class="container">
+  
+  <ul id="list">
+  <% @categories.each do  |category|%>
+  <li><button class="btn btn-sm btn-primary"><%= category.title  %></button></li>
+  <div class="card a">
+    <ul> 
+      <% category.tasks.each do |task|  %>
+      <li>
+        <%= task.title  %>
+        <% unless task.deadline.nil? %>
+          , to read: <%= task.deadline.strftime('%D')  %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  </ul>
+
+</div>
+
+<div class="container" style="margin-top:100px;z-index: 0">
+  <div class="row">
+    <% @tasks.each do |task|  %>
+      <div class="card col-3">
+        <% unless task.image.nil? %>
+          <%= image_tag task.image, class: "rounded-circle" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="login" class="col-5">
+  <form>
+    <center><h3>Login</h3></center>
+    <input type="mail" class="form-control" name="" placeholder="email"> <br>
+    <input type="password" class="form-control" name="" placeholder="password"><br>
+    <input type="submit" class="btn btn-secondary" name="">
+  </form>
+</div>
+ <div id="carrousel">
+    <ul>
+  <li><img class="carousel" src="1.jpg" /></li>
+  <li><img  class="carousel" src="2.jpg" /></li>
+  <li><img  class="carousel" src="3.jpg" /></li>
+    </ul>
+</div>  
